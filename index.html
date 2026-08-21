@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#09030d">
+<title>Happy Birthday Rakshita ❤️</title>
+<style>
+:root{
+  --bg:#07030a; --pink:#ff4f9a; --pink2:#ff8ac2; --gold:#ffd66b;
+  --cream:#fff3df; --muted:#d8bfd0; --card:rgba(35,8,28,.72);
+  --line:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; min-height:100vh; overflow-x:hidden; color:var(--cream);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% 25%,rgba(255,48,125,.18),transparent 30%),
+    radial-gradient(circle at 20% 85%,rgba(87,33,126,.18),transparent 30%),
+    linear-gradient(180deg,#040205,#10030c 55%,#050206);
+}
+button{font:inherit}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.star{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffd96a;box-shadow:0 0 12px 4px rgba(255,201,70,.38);animation:twinkle 2.5s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.18;transform:scale(.7)}50%{opacity:1;transform:scale(1.3)}}
+#app{position:relative;z-index:1;max-width:720px;margin:auto}
+.screen{min-height:100svh;display:none;align-items:center;justify-content:center;padding:28px 20px}
+.screen.active{display:flex;animation:fade .7s ease}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.wrap{width:100%;text-align:center}
+.kicker{font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:#ffc2df;margin-bottom:14px}
+h1,h2{margin:0;line-height:1.08}
+h1{font-family:Georgia,serif;font-size:clamp(2.6rem,12vw,5.2rem);color:var(--gold);text-shadow:0 0 25px rgba(255,166,70,.22)}
+h2{font-size:clamp(1.65rem,7vw,2.8rem);color:#ffe8a6}
+p{color:var(--muted);line-height:1.7}
+.small{font-size:.82rem;color:#bda8b9}
+.btn{
+  border:1px solid rgba(255,214,107,.45); color:#fff6e4;
+  background:linear-gradient(135deg,rgba(255,74,151,.24),rgba(255,199,82,.12));
+  padding:13px 24px;border-radius:999px;cursor:pointer;
+  box-shadow:0 8px 30px rgba(255,45,125,.13);transition:.25s;
+}
+.btn:hover,.btn:active{transform:translateY(-2px) scale(1.02);box-shadow:0 12px 35px rgba(255,45,125,.22)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.glass{
+  background:linear-gradient(145deg,rgba(45,8,34,.78),rgba(12,4,13,.62));
+  border:1px solid var(--line);border-radius:28px;padding:26px;
+  box-shadow:0 24px 70px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.04);
+  backdrop-filter:blur(12px);
+}
+.gift{font-size:6.5rem;display:inline-block;filter:drop-shadow(0 0 25px rgba(255,50,143,.45));animation:bob 2.3s ease-in-out infinite;cursor:pointer}
+@keyframes bob{50%{transform:translateY(-12px) rotate(2deg)}}
+.pinbox{max-width:310px;margin:22px auto}
+.pin-dots{display:flex;justify-content:center;gap:12px;margin:16px}
+.dot{width:10px;height:10px;border-radius:50%;background:#3c1b32;border:1px solid #a15b82}
+.dot.on{background:var(--pink);box-shadow:0 0 12px var(--pink)}
+.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.key{border:0;background:rgba(255,255,255,.07);color:white;border-radius:16px;padding:15px;cursor:pointer;font-size:1.05rem}
+.key:active{background:rgba(255,90,157,.25);transform:scale(.97)}
+.curtain{height:62svh;min-height:430px;position:relative;overflow:hidden;border-radius:24px;background:#3d0015;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.curtain:before,.curtain:after{content:"";position:absolute;top:0;bottom:0;width:52%;background:repeating-linear-gradient(90deg,#560019,#560019 10px,#73001f 14px,#430012 20px);transition:1.4s cubic-bezier(.77,0,.18,1);z-index:1}
+.curtain:before{left:0;border-right:3px solid #a31346}.curtain:after{right:0;border-left:3px solid #a31346}
+.curtain.open:before{transform:translateX(-102%)}.curtain.open:after{transform:translateX(102%)}
+.curtain-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#ff7bb5 0,#4d082c 45%,#08030a 100%);z-index:2}
+.birthday-card{max-width:500px}
+.age{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px auto;max-width:420px}
+.stat{padding:16px;border:1px solid rgba(255,214,107,.18);border-radius:18px;background:rgba(255,255,255,.045)}
+.stat b{display:block;font-size:1.8rem;color:#ffe49a}
+.cake{font-size:5.3rem;filter:drop-shadow(0 0 18px rgba(255,126,177,.3));cursor:pointer}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0}
+.photo{width:100%;aspect-ratio:1/1.05;object-fit:cover;border-radius:20px;border:1px solid rgba(255,255,255,.1);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.photo:nth-child(1){aspect-ratio:1.3/1}.photo:nth-child(4){aspect-ratio:1.3/1}
+.balloons{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:420px;margin:28px auto}
+.balloon{height:120px;border-radius:50% 50% 45% 45%;border:0;cursor:pointer;position:relative;box-shadow:inset -10px -12px 20px rgba(0,0,0,.16),0 10px 30px rgba(255,77,145,.15)}
+.balloon:after{content:"";position:absolute;bottom:-26px;left:50%;width:1px;height:32px;background:#bda8b9}
+.balloon:nth-child(1),.balloon:nth-child(6){background:linear-gradient(145deg,#ff83b8,#d52c76)}
+.balloon:nth-child(2),.balloon:nth-child(4){background:linear-gradient(145deg,#ffd16a,#ee8b2d)}
+.balloon:nth-child(3){background:linear-gradient(145deg,#7fdcff,#3c86d8)}
+.balloon:nth-child(5){background:linear-gradient(145deg,#bd9aff,#7651cf)}
+.balloon.popped{opacity:.15;transform:scale(.35) translateY(-60px);transition:.45s}
+.wish{min-height:58px;color:#ffe8a6;font-size:1rem}
+.scratch-wrap{max-width:420px;margin:24px auto}
+.scratch{position:relative;height:220px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,#ff2d8a,#a935cf)}
+.scratch-message{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px;font-size:1.2rem;color:white}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.envelope{font-size:6rem;cursor:pointer;filter:drop-shadow(0 0 20px rgba(255,200,100,.3));transition:.3s}
+.envelope:hover{transform:scale(1.05)}
+.letter{display:none;text-align:left;margin-top:20px}
+.letter.show{display:block;animation:fade .8s ease}
+.letter p{color:#f1d9e6;white-space:pre-line}
+.music{
+  position:fixed;right:14px;top:14px;z-index:20;width:46px;height:46px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);background:rgba(15,4,12,.75);color:#ffd66b;cursor:pointer;backdrop-filter:blur(10px)
+}
+.progress{position:fixed;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08);z-index:30}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff4f9a,#ffd66b);transition:.5s}
+.error{color:#ff9cc6;font-size:.85rem;min-height:22px;margin:8px}
+.final-heart{font-size:5rem;animation:heart 1.3s infinite}
+@keyframes heart{50%{transform:scale(1.14)}}
+@media(max-width:420px){.screen{padding:22px 14px}.glass{padding:20px}.balloon{height:105px}.gallery{gap:9px}}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<button class="music" id="musicBtn" aria-label="Play music">♪</button>
+<audio id="music" preload="auto" loop src="assets/dooron-dooron-unplugged.mp3"></audio>
+<div id="app">
+
+<section class="screen active" id="s0">
+  <div class="wrap">
+    <div class="kicker">A little surprise for you</div>
+    <h1>Hey Rakshita... 💗</h1>
+    <p>Someone made a tiny little world just to make your birthday a little more special.</p>
+    <button class="btn" onclick="go(1)">Tap to Begin ✨</button>
+    <p class="small">Use headphones for the best experience 🎧</p>
+  </div>
+</section>
+
+<section class="screen" id="s1">
+  <div class="wrap">
+    <div class="kicker">Surprise #1</div>
+    <div class="glass">
+      <div class="gift" onclick="go(2)">🎁</div>
+      <h2>A surprise is waiting for you...</h2>
+      <p>Tap the gift to open it. Don't peek ahead. 👀</p>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="s2">
+  <div class="wrap">
+    <div class="kicker">A tiny secret</div>
+    <div class="glass pinbox">
+      <div style="font-size:2rem">🔐</div>
+      <h2 style="font-size:1.55rem">Birthday Secret</h2>
+      <p>Enter the secret code to unlock the next surprise.</p>
+      <div class="pin-dots" id="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+      <div class="error" id="pinError"></div>
+      <div class="keys">
+        <button class="key" onclick="pin(1)">1</button><button class="key" onclick="pin(2)">2</button><button class="key" onclick="pin(3)">3</button>
+        <button class="key" onclick="pin(4)">4</button><button class="key" onclick="pin(5)">5</button><button class="key" onclick="pin(6)">6</button>
+        <button class="key" onclick="pin(7)">7</button><button class="key" onclick="pin(8)">8</button><button class="key" onclick="pin(9)">9</button>
+        <button class="key" onclick="clearPin()">⌫</button><button class="key" onclick="pin(0)">0</button><button class="key" onclick="clearPin(true)">C</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="s3">
+  <div class="wrap">
+    <div class="kicker">The moment</div>
+    <div class="curtain" id="curtain">
+      <div class="curtain-content">
+        <div class="birthday-card">
+          <div style="font-size:3rem">🦚</div>
+          <h2>Something beautiful is about to begin...</h2>
+          <p>One little tap.</p>
+          <button class="btn" style="position:relative;z-index:5" onclick="openCurtain()">Open ✨</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="s4">
+  <div class="wrap">
+    <div class="kicker">It's your day</div>
+    <h1 style="font-size:clamp(2.2rem,10vw,4.3rem)">Happy Birthday<br>Rakshita! 🎂</h1>
+    <p>24 years of being wonderfully you. ❤️</p>
+    <div class="age">
+      <div class="stat"><b>24</b><span>Years</span></div>
+      <div class="stat"><b>8,766+</b><span>Days of life</span></div>
+      <div class="stat"><b>∞</b><span>Reasons to smile</span></div>
+      <div class="stat"><b>1</b><span>Birthday Girl 👑</span></div>
+    </div>
+    <div class="cake" onclick="go(5)">🎂</div>
+    <p class="small">Tap the cake for your memories →</p>
+  </div>
+</section>
+
+<section class="screen" id="s5">
+  <div class="wrap">
+    <div class="kicker">A few moments worth keeping</div>
+    <h2>Beautiful Memories 💗</h2>
+    <p>No captions. Just memories. ❤️</p>
+    <div class="gallery">
+      <img class="photo" src="assets/memory-1.webp" alt="Memory 1">
+      <img class="photo" src="assets/memory-2.webp" alt="Memory 2">
+      <img class="photo" src="assets/memory-3.webp" alt="Memory 3">
+      <img class="photo" src="assets/memory-4.webp" alt="Memory 4">
+      <img class="photo" src="assets/memory-5.webp" alt="Memory 5">
+      <img class="photo" src="assets/memory-6.webp" alt="Memory 6">
+    </div>
+    <button class="btn" onclick="go(6)">Next Surprise 💫</button>
+  </div>
+</section>
+
+<section class="screen" id="s6">
+  <div class="wrap">
+    <div class="kicker">Your wishes are waiting</div>
+    <h2>Pop the Wishes 🎈</h2>
+    <p>Tap every balloon to reveal a little wish.</p>
+    <div class="balloons">
+      <button class="balloon" onclick="wish(this,0)"></button>
+      <button class="balloon" onclick="wish(this,1)"></button>
+      <button class="balloon" onclick="wish(this,2)"></button>
+      <button class="balloon" onclick="wish(this,3)"></button>
+      <button class="balloon" onclick="wish(this,4)"></button>
+      <button class="balloon" onclick="wish(this,5)"></button>
+    </div>
+    <div class="wish" id="wishText">You deserve the entire universe. ✨</div>
+    <button class="btn" id="wishNext" disabled onclick="go(7)">All wishes unlocked →</button>
+  </div>
+</section>
+
+<section class="screen" id="s7">
+  <div class="wrap">
+    <div class="kicker">One last surprise</div>
+    <h2>Scratch here 💖</h2>
+    <p>Reveal the message hidden just for you.</p>
+    <div class="scratch-wrap">
+      <div class="scratch">
+        <div class="scratch-message"><b>You are truly special. Keep smiling, keep shining, and never forget how loved and blessed you are. 🦚💙</b></div>
+        <canvas id="scratchCanvas"></canvas>
+      </div>
+    </div>
+    <button class="btn" onclick="go(8)">Continue 💌</button>
+  </div>
+</section>
+
+<section class="screen" id="s8">
+  <div class="wrap">
+    <div class="kicker">A letter just for you</div>
+    <div class="envelope" onclick="openLetter()">💌</div>
+    <h2>There is something I want to tell you...</h2>
+    <p>Tap the envelope to open your letter.</p>
+    <div class="glass letter" id="letter">
+      <p>First of all, wishing you a very Happy Birthday! 🥳✨🎂
+
+Today is a very special day for you, and I truly wish that every day ahead brings lots of happiness, new hopes, beautiful moments, and wonderful memories into your life. ❤️
+
+On your birthday, my only wish is that Lord Krishna always bless you and keep you happy. 🦚💙 May all your problems go away, may all your dreams come true, and may you get all the happiness you truly deserve. Always keep that beautiful smile on your face. 😊❤️
+
+I hope this coming year becomes one of the best years of your life. May you achieve all your goals, make the right decisions, and get many beautiful moments that you can remember and smile about even years later. 🌸✨
+
+Once again, Happy Birthday, Rakshita! ❤️🥳
+
+May Krishna always protect you, guide you, and fill your life with happiness, peace, and love. 🦚💙
+
+Stay happy, stay blessed, keep smiling, and always be the amazing person you are. 🫶🏻🌸
+
+Enjoy your day, Birthday Girl! 👑🎂✨</p>
+      <div style="text-align:center"><button class="btn" onclick="go(9)">One Final Thing ✨</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="s9">
+  <div class="wrap">
+    <div class="final-heart">💗</div>
+    <div class="kicker">From someone who wishes you the best</div>
+    <h1 style="font-size:clamp(2.2rem,10vw,4.2rem)">Happy Birthday,<br>Rakshita! 👑</h1>
+    <p style="font-size:1.1rem">May Krishna always protect you, guide you, and fill your life with happiness, peace and love. 🦚💙</p>
+    <div class="glass">
+      <p style="margin:0;color:#ffe7a7">Keep smiling. Keep shining. Keep being you. ✨</p>
+    </div>
+    <p class="small">Made with a little love, a lot of memories, and one very special birthday wish. ❤️</p>
+  </div>
+</section>
+
+</div>
+<div class="progress"><i id="bar"></i></div>
+
+<script>
+const screens=[...document.querySelectorAll('.screen')];
+let current=0;
+function go(n){
+  if(n<0||n>=screens.length)return;
+  screens[current].classList.remove('active');
+  current=n;screens[current].classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('bar').style.width=((current)/(screens.length-1)*100)+'%';
+  tryPlay();
+}
+function tryPlay(){
+  const a=document.getElementById('music');
+  a.play().then(()=>document.getElementById('musicBtn').textContent='❚❚').catch(()=>{});
+}
+document.getElementById('musicBtn').onclick=()=>{
+  const a=document.getElementById('music');
+  if(a.paused){a.play().then(()=>musicBtn.textContent='❚❚').catch(()=>alert('Add your MP3 as assets/dooron-dooron-unplugged.mp3 first.'))}
+  else{a.pause();musicBtn.textContent='♪'}
+};
+let entered='';
+function pin(n){
+  if(entered.length>=4)return;
+  entered+=n;drawDots();
+  if(entered.length===4){
+    if(entered==='2002'){setTimeout(()=>go(3),350)}
+    else{document.getElementById('pinError').textContent='Not quite… try again 💗';setTimeout(clearPin,700)}
+  }
+}
+function clearPin(all=false){entered='';drawDots();if(all)document.getElementById('pinError').textContent=''}
+function drawDots(){[...document.querySelectorAll('.dot')].forEach((d,i)=>d.classList.toggle('on',i<entered.length))}
+document.getElementById('curtain').addEventListener('click', (e)=>{ if(e.target.tagName !== 'BUTTON') openCurtain(); });
+function openCurtain(){
+  document.getElementById('curtain').classList.add('open');
+  setTimeout(()=>go(4),1000);
+}
+const wishes=[
+  'May every dream in your heart find its way to you. ✨',
+  'May Krishna always keep you protected and peaceful. 🦚💙',
+  'May your smile stay brighter than every star. 🌟',
+  'May this year bring you beautiful surprises. 🌸',
+  'May you achieve everything you work hard for. 💫',
+  'May happiness find you, again and again. ❤️'
+];
+let popped=0;
+function wish(el,i){
+  if(el.classList.contains('popped'))return;
+  el.classList.add('popped');popped++;
+  document.getElementById('wishText').textContent=wishes[i];
+  if(popped===6)document.getElementById('wishNext').disabled=false;
+}
+function openLetter(){document.getElementById('letter').classList.add('show')}
+function stars(){
+  const root=document.getElementById('stars');
+  for(let i=0;i<70;i++){
+    const s=document.createElement('i');s.className='star';
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=(Math.random()*3)+'s';s.style.animationDuration=(1.8+Math.random()*2.8)+'s';
+    root.appendChild(s);
+  }
+}
+stars();
+
+function initScratch(){
+  const c=document.getElementById('scratchCanvas'), box=c.parentElement;
+  const dpr=Math.max(1,window.devicePixelRatio||1);
+  c.width=box.clientWidth*dpr;c.height=box.clientHeight*dpr;
+  const ctx=c.getContext('2d');ctx.scale(dpr,dpr);
+  const g=ctx.createLinearGradient(0,0,box.clientWidth,box.clientHeight);
+  g.addColorStop(0,'#9b6b9d');g.addColorStop(.5,'#d1b4cf');g.addColorStop(1,'#6d466f');
+  ctx.fillStyle=g;ctx.fillRect(0,0,box.clientWidth,box.clientHeight);
+  ctx.fillStyle='rgba(255,255,255,.18)';ctx.font='bold 18px system-ui';ctx.textAlign='center';
+  ctx.fillText('SCRATCH HERE',box.clientWidth/2,box.clientHeight/2);
+  let down=false, cleared=0;
+  function scratch(e){
+    if(!down)return;
+    const r=c.getBoundingClientRect();
+    const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+    const y=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
+    ctx.globalCompositeOperation='destination-out';
+    ctx.beginPath();ctx.arc(x,y,24,0,Math.PI*2);ctx.fill();
+    cleared++;
+    if(cleared%12===0){
+      // sample a small grid to auto-fade once enough is scratched
+      const data=ctx.getImageData(0,0,c.width,c.height).data;
+      let transparent=0,total=data.length/4;
+      for(let i=3;i<data.length;i+=4) if(data[i]<20) transparent++;
+      if(transparent/total>.42)c.style.opacity='.12';
+    }
+  }
+  c.addEventListener('pointerdown',()=>down=true);c.addEventListener('pointerup',()=>down=false);
+  c.addEventListener('pointercancel',()=>down=false);c.addEventListener('pointermove',scratch);
+  c.addEventListener('touchstart',e=>{down=true;scratch(e)},{passive:true});
+  c.addEventListener('touchmove',scratch,{passive:true});c.addEventListener('touchend',()=>down=false);
+}
+window.addEventListener('load',initScratch);
+</script>
+</body>
+</html>
